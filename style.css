@@ -23,3 +23,7 @@
     cursor: pointer;
     color: #E76B0A
 }
+
+.table-attrs table {
+    width: 100%;
+}
