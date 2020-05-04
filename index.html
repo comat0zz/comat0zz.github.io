@@ -1,96 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Новая Эра. Калькулятор персонажа</title>
+<title>Новая Эра. Калькулятор персонажа</title>
 
-    <link rel="stylesheet" 
+<link rel="stylesheet" 
     href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
     crossorigin="anonymous">
-    <link rel="stylesheet"
+<link rel="stylesheet"
     href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" 
     integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" 
     crossorigin="anonymous">
     
-    <style>
-        .fas.btn {
-            padding: 0;
-            float: left
-        }
-
-        .micro-number {
-            width: 80px;
-        }
-
-        .route-of-magic {
-            padding: 3px;
-            border: 2px;
-            border-color: #FA8C59;
-            border-style: solid;
-        }
-
-        .table-race-info {
-            font-size: 80%;
-
-        }
+<link rel="stylesheet" 
+    type="text/css" 
+    href="./style.css">
     
-.modal-mask {
-  position: fixed;
-  z-index: 9998;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: table;
-  transition: opacity 0.3s ease;
-}
-
-.modal-wrapper {
-  display: table-cell;
-  vertical-align: middle;
-}
-
-.modal-container {
-  width: 300px;
-  margin: 0px auto;
-  padding: 20px 30px;
-  background-color: #fff;
-  border-radius: 2px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
-  transition: all 0.3s ease;
-  font-family: Helvetica, Arial, sans-serif;
-}
-
-.modal-header h3 {
-  margin-top: 0;
-  color: #42b983;
-}
-
-.modal-body {
-  margin: 20px 0;
-}
-
-.modal-default-button {
-  float: right;
-}
-
-.modal-enter {
-  opacity: 0;
-}
-
-.modal-leave-active {
-  opacity: 0;
-}
-
-.modal-enter .modal-container,
-.modal-leave-active .modal-container {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
-}
-
-
-    </style>
+<link rel="stylesheet" 
+    type="text/css" 
+    href="./modal.css">
 
 <script type="text/x-template" id="modal-template">
       <transition name="modal">
@@ -122,7 +50,6 @@
         </div>
       </transition>
 </script>
-
 </head>
 <body>
 

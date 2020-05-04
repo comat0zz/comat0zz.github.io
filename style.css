@@ -1,0 +1,20 @@
+.fas.btn {
+    padding: 0;
+    float: left
+}
+
+.micro-number {
+    width: 80px;
+}
+
+.route-of-magic {
+    padding: 3px;
+    border: 2px;
+    border-color: #FA8C59;
+    border-style: solid;
+}
+
+.table-race-info {
+    font-size: 80%;
+
+}
