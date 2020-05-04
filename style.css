@@ -18,3 +18,8 @@
     font-size: 80%;
 
 }
+
+.cursor-pointer {
+    cursor: pointer;
+    color: #E76B0A
+}

@@ -53,7 +53,7 @@
 </head>
 <body>
 
-    <div class="sheet-container container">
+<div class="sheet-container container">
         <div class="row">
             <modal v-if="showModal" @close="showModal = false">
         </div>
@@ -199,68 +199,112 @@
                 </table>
             </div>
         </div>
+        <div class="row"><hr></div>
         <div class="row">
-            <div class="col-5">
-                <!-- Блок характеристик -->
-                <div class="row">
-                    <div class="col-12">
-                        <table class="table">
+            <h3>Атрибуты</h3>
+        </div>
+
+        <div class="row">
+            <div class="col-2">
+                        <table>
                             <thead>
-                                <th colspan="3">Атрибуты</th>
-                                <th></th>
+                                <th colspan="3">Сила</th>
+                                <th><i id="show-modal" @click="help('attributes.power')" class="fas fa-info-circle cursor-pointer"></i></th>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Сила</td>
                                     <td><i class="fas fa-minus-circle btn" @click="modStats('power', 'minus')"></i></td>
                                     <td>{{attributes.power}}</td>
                                     <td><i class="fas fa-plus-circle btn" @click="modStats('power', 'plus')"></i></td>
-                                    <td><button id="show-modal" @click="help('attributes.power')">?</button></td>
                                 </tr>
-                                <tr>
-                                    <td>Ловкость</td>
-                                    <td><i class="fas fa-minus-circle btn" @click="modStats('dexterity', 'minus')"></i></td>
-                                    <td>{{attributes.dexterity}}</td>
-                                    <td><i class="fas fa-plus-circle btn" @click="modStats('dexterity', 'plus')"></i></td>
-                                    <td><button id="show-modal" @click="help('attributes.dexterity')">?</button></td>
-                                </tr>
-                                <tr>
-                                    <td>Мышление</td>
-                                    <td><i class="fas fa-minus-circle btn" @click="modStats('thinking', 'minus')"></i></td>
-                                    <td>{{attributes.thinking}}</td>
-                                    <td><i class="fas fa-plus-circle btn" @click="modStats('thinking', 'plus')"></i></td>
-                                    <td><button id="show-modal" @click="help('attributes.thinking')">?</button></td>
-                                </tr>
-                                <tr>
-                                    <td>Образование</td>
-                                    <td><i class="fas fa-minus-circle btn" @click="modStats('education', 'minus')"></i></td>
-                                    <td>{{attributes.education}}</td>
-                                    <td><i class="fas fa-plus-circle btn" @click="modStats('education', 'plus')"></i></td>
-                                    <td><button id="show-modal" @click="help('attributes.education')">?</button></td>
-                                </tr>     
-                                <tr>
-                                    <td>Уверенность</td>
-                                    <td><i class="fas fa-minus-circle btn" @click="modStats('confidence', 'minus')"></i></td>
-                                    <td>{{attributes.confidence}}</td>
-                                    <td><i class="fas fa-plus-circle btn" @click="modStats('confidence', 'plus')"></i></td>
-                                    <td><button id="show-modal" @click="help('attributes.confidence')">?</button></td>
-                                </tr>
-                                <tr>
-                                    <td>Выносливость</td>
-                                    <td><i class="fas fa-minus-circle btn" @click="modStats('endurance', 'minus')"></i></td>
-                                    <td>{{attributes.endurance}}</td>
-                                    <td><i class="fas fa-plus-circle btn" @click="modStats('endurance', 'plus')"></i></td>
-                                    <td><button id="show-modal" @click="help('attributes.endurance')">?</button></td>
-                                </tr>                       
                             </tbody>
                         </table>
                     </div>
-                </div>
-            </div>
+                    <div class="col-2">
+                        <table>
+                            <thead>
+                                <th colspan="3">Ловкость</th>
+                                <th><i id="show-modal" @click="help('attributes.dexterity')" class="fas fa-info-circle cursor-pointer"></i></th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><i class="fas fa-minus-circle btn" @click="modStats('dexterity', 'minus')"></i></td>
+                                    <td>{{attributes.dexterity}}</td>
+                                    <td><i class="fas fa-plus-circle btn" @click="modStats('dexterity', 'plus')"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-2">
+                        <table>
+                            <thead>
+                                <th colspan="3">Мышление</th>
+                                <th><i id="show-modal" @click="help('attributes.thinking')" class="fas fa-info-circle cursor-pointer"></i></th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><i class="fas fa-minus-circle btn" @click="modStats('thinking', 'minus')"></i></td>
+                                    <td>{{attributes.thinking}}</td>
+                                    <td><i class="fas fa-plus-circle btn" @click="modStats('thinking', 'plus')"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-2">
+                        <table>
+                            <thead>
+                                <th colspan="3">Образование</th>
+                                <th><i id="show-modal" @click="help('attributes.education')" class="fas fa-info-circle cursor-pointer"></i></th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><i class="fas fa-minus-circle btn" @click="modStats('education', 'minus')"></i></td>
+                                    <td>{{attributes.education}}</td>
+                                    <td><i class="fas fa-plus-circle btn" @click="modStats('education', 'plus')"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-2">
+                        <table>
+                            <thead>
+                                <th colspan="3">Уверенность</th>
+                                <th><i id="show-modal" @click="help('attributes.confidence')" class="fas fa-info-circle cursor-pointer"></i></th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><i class="fas fa-minus-circle btn" @click="modStats('confidence', 'minus')"></i></td>
+                                    <td>{{attributes.confidence}}</td>
+                                    <td><i class="fas fa-plus-circle btn" @click="modStats('confidence', 'plus')"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-2">
+                        <table>
+                            <thead>
+                                <th colspan="3">Выносливость</th>
+                                <th><i id="show-modal" @click="help('attributes.endurance')" class="fas fa-info-circle cursor-pointer"></i></th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><i class="fas fa-minus-circle btn" @click="modStats('endurance', 'minus')"></i></td>
+                                    <td>{{attributes.endurance}}</td>
+                                    <td><i class="fas fa-plus-circle btn" @click="modStats('endurance', 'plus')"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+        </div> 
 
-        </div>
-
+    <div class="row"><hr></div>
+    <div class="row">
+        <h3>Навыки</h3>
     </div>
+
+
+
+</div>
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
