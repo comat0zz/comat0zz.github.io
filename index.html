@@ -209,9 +209,12 @@
             <h3>Атрибуты</h3>
         </div>
 
+<div class="row">
+    <div class="col-6">
+
         <div class="row">
-            <div class="col-2 table-attrs">
-                        <table>
+            <div class="col-4 table-attrs">
+                <table>
                             <thead>
                                 <th colspan="3">Сила</th>
                                 <th><i id="show-modal" @click="help('attributes.power')" class="fas fa-info-circle cursor-pointer"></i></th>
@@ -223,9 +226,9 @@
                                     <td><i class="fas fa-plus-circle btn" @click="modStats('power', 'plus')"></i></td>
                                 </tr>
                             </tbody>
-                        </table>
-                    </div>
-                    <div class="col-2">
+                </table>
+            </div>
+            <div class="col-4">
                         <table>
                             <thead>
                                 <th colspan="3">Ловкость</th>
@@ -240,7 +243,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="col-2">
+            <div class="col-4">
                         <table>
                             <thead>
                                 <th colspan="3">Мышление</th>
@@ -255,7 +258,9 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="col-2">
+        </div>
+        <div class="row attributes-down">
+            <div class="col-4">
                         <table>
                             <thead>
                                 <th colspan="3">Образование</th>
@@ -270,7 +275,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="col-2">
+                    <div class="col-4">
                         <table>
                             <thead>
                                 <th colspan="3">Уверенность</th>
@@ -285,7 +290,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="col-2">
+                    <div class="col-4">
                         <table>
                             <thead>
                                 <th colspan="3">Выносливость</th>
@@ -301,6 +306,16 @@
                         </table>
                     </div>
         </div> 
+    </div>
+    <div class="col-6">
+        <div class="piramyd-block">
+            <ul class="list-inline endure-block">
+                <li class="list-inline-item" v-for="(item, index) in modPyramid()" :key="index">{{item}}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
 
     <div class="row"><hr></div>
     <div class="row">

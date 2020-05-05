@@ -43,3 +43,37 @@
 .cart-body {
     padding: 0.5 rem !important;
 }
+
+
+.attributes-down {
+    margin-top: 20px;
+}
+
+.piramyd-block {
+    background-image: url('pyr.jpg');
+    background-repeat: no-repeat;
+    height:100%;
+    background-size: contain;
+    margin-left: 150px; 
+}
+
+.piramyd-block .endure-block {
+    -moz-transform: rotate(-58deg); /* Для Firefox */
+    -ms-transform: rotate(-58deg); /* Для IE */
+    -webkit-transform: rotate(-58deg); /* Для Safari, Chrome, iOS */
+    -o-transform: rotate(-58deg); /* Для Opera */
+    transform: rotate(-58deg);
+    width: 175px;
+    position: absolute;
+    top: 30px;
+    left: 106px
+}
+
+.piramyd-block .endure-block li {
+    -moz-transform: rotate(57deg); /* Для Firefox */
+    -ms-transform: rotate(57deg); /* Для IE */
+    -webkit-transform: rotate(57deg); /* Для Safari, Chrome, iOS */
+    -o-transform: rotate(57deg); /* Для Opera */
+    transform: rotate(57deg);
+    padding-right: 6px;
+}
