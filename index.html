@@ -2,6 +2,7 @@
 <html>
 <head>
 <title>Новая Эра. Калькулятор персонажа</title>
+<meta charset="utf-8">
 
 <link rel="stylesheet" 
     href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
@@ -68,7 +69,7 @@
                 <div v-html="linkChar"></div>
             </div>
         </div>
-        <div class="row">
+        <div class="row sticky-bar">
             <div class="col-3">
                 <label>Имя<input type="text" v-model="name" class="form-control"></label>
             </div>
@@ -302,7 +303,28 @@
         <h3>Навыки</h3>
     </div>
     <div class="row">
-        
+
+<div class="card-columns">
+  
+  <div class="card" v-for="(item, index) in showSkills()" :key="index">
+    <div class="card-body">
+        <i id="show-modal" v-on:click="helpSkill(index)" class="fas fa-info-circle cursor-pointer" style="float:right;"></i>
+        <h5 class="card-title">{{item.name}}</h5>
+        <p class="card-text">
+            {{item.type}} {{item.attr}}
+            <ul class="list-inline">
+                <li class="list-inline-item"></li>
+                <li class="list-inline-item"><i class="fas fa-minus-circle btn" v-on:click="updateSkill(index, 'minus')"></i></li>
+                <li class="list-inline-item">{{item.lvl}}</li>
+                <li class="list-inline-item"><i class="fas fa-plus-circle btn" v-on:click="updateSkill(index, 'plus')"></i></li>
+            </ul>
+        </p>
+    </div>
+  </div>
+
+</div>
+
+
     </div>
 
 
@@ -318,5 +340,5 @@
 </body>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="./script.js"></script>
+<script type="text/javascript" charset="UTF-8" src="./script.js"></script>
 </html>

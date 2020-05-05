@@ -27,3 +27,11 @@
 .table-attrs table {
     width: 100%;
 }
+
+.sticky-bar {
+    position: sticky;
+    position: -webkit-sticky; /* Required for Safari */
+    top:0;
+    background: #fff;
+    z-index: 10;
+}

@@ -51,6 +51,10 @@ var Character = new Vue({
             air: 0
         }, 
 
+        // Текущий набор навыков у персонажа 
+        // [{ид_навыка:уровень}, ..]
+        curSkills: [], 
+
         
 
         // >>>===================== Таблицы с константами 
@@ -58,9 +62,15 @@ var Character = new Vue({
         // Стоимость покупки атрибутов
         costAttrs: [0, 10, 20, 30, 40, 50],
 
-        // Зависимость статов и УД от выбранной рассы
+        // Стоимость покупки навыков
+        costSkills: {
+            "s": [4, 2, 3, 4, 5],
+            "d": [8, 4, 6, 8, 10]
+        },
+
         races: {}, 
         skills: [],
+        helps: {},
 
         // Для служебных нужд 
         temp: {
@@ -92,12 +102,13 @@ var Character = new Vue({
             this.attributes = Char.attributes;
             this.age = Char.age;
             this.sex = Char.sex;
-            this.skills = Char.skills;
+            this.curSkills = Char.curSkills;
             this.race.id = Char.race;
 
             this.onUpdateRace(this, this.race.id);
         }
         
+
         axios
             .get('/skills.json')
             .then(response => (this.skills = response.data))
@@ -106,6 +117,11 @@ var Character = new Vue({
         axios
             .get('/races.json')
             .then(response => (this.races = response.data))
+            .catch(error => console.log(error));
+
+        axios
+            .get('/helps.json')
+            .then(response => (this.helps = response.data))
             .catch(error => console.log(error));
     },
 
@@ -117,6 +133,13 @@ var Character = new Vue({
 
             Character.showModal = true;
 
+        },
+
+        helpSkill: function(skill_id) {
+
+            info = Character.skills[skill_id].info;
+
+            Character.showModal = true;
         },
 
         saveChar: function() {
@@ -135,7 +158,7 @@ var Character = new Vue({
                 attributes: Character.attributes,
                 sex: Character.sex,
                 money: Character.money,
-                skills: Character.skills
+                curSkills: Character.curSkills
             }
 
             enc = encodeURIComponent(btoa(JSON.stringify(save)));
@@ -145,7 +168,7 @@ var Character = new Vue({
         reset: function() {
 
             Character.exp = Character.baseExp;
-            Character.skills = [];
+            Character.curSkills = [];
             
             for( var magic in Character.routeOfMagic ) {
                 Character.routeOfMagic[magic] = 0;
@@ -158,6 +181,8 @@ var Character = new Vue({
             for(var attr in Character.attributes ) {
                 Character.attributes[attr] = 0;
             } 
+
+            Character.showSkills();
 
         },
 
@@ -222,6 +247,35 @@ var Character = new Vue({
             id = Character.race.id;
             Character.onUpdateRace(Character, id);
             Character.exp = Character.baseExp + Character.races[id].exp;
+        },
+
+        // Генерация списка нвыков, отметка существующих
+        showSkills: function() {
+
+            return this.skills;
+        },
+
+        // Обновить значение навыка
+        updateSkill: function(skill_id, op) {
+            skill = Character.skills[skill_id];
+
+            lvl = Character.skills[skill_id].lvl;
+            newLvl = op == 'plus' ? lvl + 1 : lvl - 1;
+            costExp = Character.costSkills[skill.type];
+
+            if(newLvl >= 0 && newLvl <= 5) {
+                if (op == 'plus') {
+                    cost = costExp[lvl];
+                    Character.exp = Character.exp - cost;
+                }
+
+                if (op == 'minus') {
+                    cost = costExp[lvl-1];
+                    Character.exp = Character.exp + cost; 
+                }
+
+                Character.skills[skill_id].lvl = newLvl;
+            }            
         }
     }
 });
