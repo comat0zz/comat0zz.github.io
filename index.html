@@ -99,7 +99,7 @@
                         <th>
                             Выберите рассу: 
                             <select v-model="race" @change="onChangeRace($event)" class="form-control"  style="float:right; width:50%">
-                                <option v-bind:value="{ id: 'none' }">--- Раса не выбрана ---</option>
+                                <option disabled v-bind:value="{ id: 'none' }">--- Раса не выбрана ---</option>
                                 <option v-bind:value="{ id: 'human' }">Арьи (люди)</option>
                                 <option v-bind:value="{ id: 'gnome' }">Испы (гномы)</option>
                                 <option v-bind:value="{ id: 'elf' }">Асы (эльфы)</option>
@@ -301,6 +301,15 @@
     <div class="row">
         <h3>Навыки</h3>
     </div>
+    <div class="row">
+        
+    </div>
+
+
+    <div class="row"><hr></div>
+    <div class="row">
+        <h3>Особенности</h3>
+    </div>
 
 
 
@@ -308,5 +317,6 @@
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="./script.js"></script>
 </html>
