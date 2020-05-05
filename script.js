@@ -316,6 +316,8 @@ var Character = new Vue({
             this.curSkills = Char.curSkills;
             this.race.id = Char.race;
 
+            console.log(this.curSkills);
+
             this.onUpdateRace(this, this.race.id);
         }
     },
@@ -353,7 +355,13 @@ var Character = new Vue({
                 attributes: Character.attributes,
                 sex: Character.sex,
                 money: Character.money,
-                curSkills: Character.curSkills
+                curSkills: []
+            }
+
+            for(var skill in Character.skills) {
+                if(Character.skills[skill].lvl > 0){
+                    save['curSkills'].push({ id: skill, value : Character.skills[skill].lvl });
+                }                
             }
 
             enc = encodeURIComponent(btoa(JSON.stringify(save)));
@@ -445,8 +453,24 @@ var Character = new Vue({
 
         // Генерация списка нвыков, отметка существующих
         showSkills: function() {
+            for(var sid in this.skills) {
+                lvl = this.getCurSkill(sid);
+                console.log(lvl)
+                this.skills[sid].lvl = lvl;
+            }
 
             return this.skills;
+        },
+
+        getCurSkill: function(id) {
+            for(var sid in this.curSkills) {
+                did = parseInt(this.curSkills[sid].id);
+                if(did == id) {
+                    return this.curSkills[sid].value;
+                }
+            }
+
+            return 0;
         },
 
         // Обновить значение навыка
