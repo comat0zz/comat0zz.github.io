@@ -16,7 +16,7 @@
 <link rel="stylesheet" 
     type="text/css" 
     href="./style.css">
-    
+
 <link rel="stylesheet" 
     type="text/css" 
     href="./modal.css">
@@ -27,22 +27,22 @@
           <div class="modal-wrapper">
             <div class="modal-container">
 
-              <div class="modal-header">
+              <div class="modal-header" >
                 <slot name="header">
-                  {{helpHeader}}
+                  default header
                 </slot>
               </div>
 
               <div class="modal-body">
                 <slot name="body">
-                  {{helpBody}}
+                  default body
                 </slot>
               </div>
 
               <div class="modal-footer">
                 <slot name="footer">
                   <button class="modal-default-button" @click="$emit('close')">
-                    OK
+                    Закрыть
                   </button>
                 </slot>
               </div>
@@ -51,12 +51,16 @@
         </div>
       </transition>
 </script>
+
 </head>
 <body>
 
-<div class="sheet-container container">
+<div id="app" class="sheet-container container">
         <div class="row">
-            <modal v-if="showModal" @close="showModal = false">
+                  <modal v-if="showModal" @close="showModal = false">
+                    <h3 slot="header" >{{helpHeader}}</h3>
+                    <p slot="body" v-html="helpBody">{{helpBody}}</p>
+                  </modal>
         </div>
         <div class="row">
             <div class="col-2">
