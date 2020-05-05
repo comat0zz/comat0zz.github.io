@@ -310,15 +310,13 @@
     <div class="card-body">
         <i id="show-modal" v-on:click="helpSkill(index)" class="fas fa-info-circle cursor-pointer" style="float:right;"></i>
         <h5 class="card-title">{{item.name}}</h5>
-        <p class="card-text">
-            {{item.type}} {{item.attr}}
-            <ul class="list-inline">
-                <li class="list-inline-item"></li>
-                <li class="list-inline-item"><i class="fas fa-minus-circle btn" v-on:click="updateSkill(index, 'minus')"></i></li>
-                <li class="list-inline-item">{{item.lvl}}</li>
-                <li class="list-inline-item"><i class="fas fa-plus-circle btn" v-on:click="updateSkill(index, 'plus')"></i></li>
-            </ul>
-        </p>
+        <ul class="list-inline">
+            <li class="list-inline-item">{{item.attr}}</li>
+            <li class="list-inline-item">&nbsp;</li>
+            <li class="list-inline-item"><i class="fas fa-minus-circle btn" v-on:click="updateSkill(index, 'minus')"></i></li>
+            <li class="list-inline-item">{{item.lvl}}</li>
+            <li class="list-inline-item"><i class="fas fa-plus-circle btn" v-on:click="updateSkill(index, 'plus')"></i></li>
+        </ul>
     </div>
   </div>
 

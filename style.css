@@ -35,3 +35,7 @@
     background: #fff;
     z-index: 10;
 }
+
+.list-inline {
+    margin-bottom: 0rem;
+}
