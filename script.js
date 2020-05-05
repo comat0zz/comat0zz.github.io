@@ -316,8 +316,6 @@ var Character = new Vue({
             this.curSkills = Char.curSkills;
             this.race.id = Char.race;
 
-            console.log(this.curSkills);
-
             this.onUpdateRace(this, this.race.id);
         }
     },
@@ -453,11 +451,18 @@ var Character = new Vue({
 
         // Генерация списка нвыков, отметка существующих
         showSkills: function() {
+            
             for(var sid in this.skills) {
-                lvl = this.getCurSkill(sid);
-                console.log(lvl)
-                this.skills[sid].lvl = lvl;
-            }
+                
+                var val = this.getCurSkill(sid);
+
+                if(val > 0 && this.curSkills != [] && this.skills[sid].lvl != val ) {
+                    //Vue.set(this.skills[sid], 'lvl', val);
+                    this.skills[sid].lvl = val;
+                }                
+            } 
+
+            this.curSkills = [];
 
             return this.skills;
         },
@@ -466,7 +471,7 @@ var Character = new Vue({
             for(var sid in this.curSkills) {
                 did = parseInt(this.curSkills[sid].id);
                 if(did == id) {
-                    return this.curSkills[sid].value;
+                    return parseInt(this.curSkills[sid].value);
                 }
             }
 
@@ -475,6 +480,7 @@ var Character = new Vue({
 
         // Обновить значение навыка
         updateSkill: function(skill_id, op) {
+
             skill = Character.skills[skill_id];
 
             lvl = Character.skills[skill_id].lvl;
@@ -492,7 +498,7 @@ var Character = new Vue({
                     Character.exp = Character.exp + cost; 
                 }
 
-                Character.skills[skill_id].lvl = newLvl;
+                Vue.set(Character.skills[skill_id], 'lvl', newLvl);
             }            
         }
     }
