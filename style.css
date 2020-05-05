@@ -39,3 +39,7 @@
 .list-inline {
     margin-bottom: 0rem;
 }
+
+.cart-body {
+    padding: 0.5 rem !important;
+}
